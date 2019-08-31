@@ -1,0 +1,10 @@
+package com.liqiang.hrm.query;
+
+
+/**
+ *
+ * @author ${author}
+ * @date ${date}
+ */
+public class ${table.entityName}Query extends BaseQuery{
+}
