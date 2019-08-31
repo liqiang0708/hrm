@@ -1,0 +1,15 @@
+/hrm.iml
+/hrm_system_parent/hrm_system_parent.iml
+/hrm_system_parent/hrm_system_service/hrm_system_service.iml
+/hrm_system_parent/hrm_system_api/hrm_system_api.iml
+/hrm_support_parent/hrm_support_parent.iml
+/hrm_support_parent/hrm_zuul_4399/hrm_zuul_4399.iml
+/hrm_support_parent/hrm_eureka_1024/hrm_eureka_1024.iml
+/hrm_mybatisplus/hrm_mybatisplus.iml
+/hrm_basic_parent/hrm_basic_parent.iml
+/hrm_basic_parent/hrm_basic_util/hrm_basic_util.iml
+/.idea/workspace.xml
+/.idea/misc.xml
+/.idea/vcs.xml
+/.idea
+.idea
