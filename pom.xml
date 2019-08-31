@@ -11,7 +11,6 @@
     <modules>
         <module>hrm_support_parent</module>
         <module>hrm_basic_parent</module>
-        <module>hrm_system_parent/hrm_system_parent</module>
         <module>hrm_system_parent</module>
         <module>hrm_mybatisplus</module>
     </modules>
@@ -42,5 +41,4 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
 </project>
