@@ -13,6 +13,7 @@
         <module>hrm_basic_parent</module>
         <module>hrm_system_parent</module>
         <module>hrm_mybatisplus</module>
+        <module>hrm_course_parent</module>
     </modules>
 
     <properties>
