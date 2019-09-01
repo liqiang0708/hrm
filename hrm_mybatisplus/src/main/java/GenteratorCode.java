@@ -67,6 +67,14 @@ public class GenteratorCode {
         List<FileOutConfig> focList = new ArrayList<FileOutConfig>();
         //============================================第一种方式========================================================
         // 调整 domain 生成目录演示 生成到接口
+        focList.add(new FileOutConfig("/templates/Swagger2.java.vm") {//这个模板在templates找不到，是框架内置的
+            @Override
+            public String outputFile(TableInfo tableInfo) {
+                return rb.getString("OutputDir")+ "/com/liqiang/hrm/config/Swagger2.java";
+            }
+        });
+
+        // 调整 domain 生成目录演示 生成到接口
         focList.add(new FileOutConfig("/templates/entity.java.vm") {//这个模板在templates找不到，是框架内置的
             @Override
             public String outputFile(TableInfo tableInfo) {
