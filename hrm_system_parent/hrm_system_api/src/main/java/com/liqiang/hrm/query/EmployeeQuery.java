@@ -1,6 +1,5 @@
 package com.liqiang.hrm.query;
 
-
 /**
  *
  * @author liqiang

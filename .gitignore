@@ -15,3 +15,7 @@
 /hrm_basic_parent/hrm_basic_parent.iml
 /hrm_basic_parent/hrm_basic_util/hrm_basic_util.iml
 .idea
+/hrm_course_parent/hrm_course_parent.iml
+/hrm_course_parent/hrm_course_service/hrm_course_service.iml
+target
+/hrm_course_parent/hrm_course_api/hrm_course_api.iml
