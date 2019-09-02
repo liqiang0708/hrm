@@ -24,11 +24,11 @@
             <version>2.2.0</version>
         </dependency>
 
-       <!-- 客户端feign支持
+        <!--客户端feign支持   对 client -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>-->
+        </dependency>
 
     </dependencies>
 

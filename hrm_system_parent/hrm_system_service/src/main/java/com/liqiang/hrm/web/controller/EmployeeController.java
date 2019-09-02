@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-//http://localhost:4399/services/system/employee/list
+
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {

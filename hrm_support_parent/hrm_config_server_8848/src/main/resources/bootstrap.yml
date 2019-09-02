@@ -12,7 +12,11 @@ spring:
   cloud:
     config:
       server:
-        git:
-          uri: https://github.com/liqiang0708/hrm-config.git
-          username: liqiang0708
-          password: lq996598001
+        native:
+          search-locations: D:/Git/hrm-config
+  profiles:
+    active: native # 激活从本地获取配置文件
+#        git:
+#          uri: https://github.com/liqiang0708/hrm-config.git
+#          username: liqiang0708
+#          password:

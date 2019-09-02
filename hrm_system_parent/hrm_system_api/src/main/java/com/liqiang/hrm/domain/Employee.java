@@ -1,7 +1,9 @@
 package com.liqiang.hrm.domain;
 
 import com.baomidou.mybatisplus.enums.IdType;
+import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableName;
 import java.io.Serializable;
@@ -12,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author liqiang
- * @since 2019-08-30
+ * @since 2019-09-02
  */
 @TableName("t_employee")
 public class Employee extends Model<Employee> {
@@ -21,8 +23,18 @@ public class Employee extends Model<Employee> {
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
-    private Integer age;
-    private String name;
+    private String username;
+    private String password;
+    private String realName;
+    private String tel;
+    private String email;
+    private Date inputTime;
+    private Integer state;
+    @TableField("dept_id")
+    private Long deptId;
+    @TableField("tenant_id")
+    private Long tenantId;
+    private Boolean type;
 
 
     public Long getId() {
@@ -33,20 +45,84 @@ public class Employee extends Model<Employee> {
         this.id = id;
     }
 
-    public Integer getAge() {
-        return age;
+    public String getUsername() {
+        return username;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getName() {
-        return name;
+    public String getPassword() {
+        return password;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Date getInputTime() {
+        return inputTime;
+    }
+
+    public void setInputTime(Date inputTime) {
+        this.inputTime = inputTime;
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
+    }
+
+    public Long getDeptId() {
+        return deptId;
+    }
+
+    public void setDeptId(Long deptId) {
+        this.deptId = deptId;
+    }
+
+    public Long getTenantId() {
+        return tenantId;
+    }
+
+    public void setTenantId(Long tenantId) {
+        this.tenantId = tenantId;
+    }
+
+    public Boolean getType() {
+        return type;
+    }
+
+    public void setType(Boolean type) {
+        this.type = type;
     }
 
     @Override
@@ -58,8 +134,16 @@ public class Employee extends Model<Employee> {
     public String toString() {
         return "Employee{" +
         ", id=" + id +
-        ", age=" + age +
-        ", name=" + name +
+        ", username=" + username +
+        ", password=" + password +
+        ", realName=" + realName +
+        ", tel=" + tel +
+        ", email=" + email +
+        ", inputTime=" + inputTime +
+        ", state=" + state +
+        ", deptId=" + deptId +
+        ", tenantId=" + tenantId +
+        ", type=" + type +
         "}";
     }
 }

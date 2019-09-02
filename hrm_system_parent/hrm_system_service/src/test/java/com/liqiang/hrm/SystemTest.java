@@ -2,7 +2,7 @@ package com.liqiang.hrm;
 
 import com.baomidou.mybatisplus.plugins.Page;
 import com.liqiang.hrm.domain.Employee;
-import com.liqiang.hrm.domain.Systemdictionary;
+import com.liqiang.hrm.domain.Systemdictionaryitem;
 import com.liqiang.hrm.service.IEmployeeService;
 import com.liqiang.hrm.service.ISystemdictionaryService;
 import com.liqiang.hrm.service.ISystemdictionaryitemService;
@@ -25,14 +25,15 @@ public class SystemTest {
     private IEmployeeService employeeService;
     @Test
     public void test() throws Exception{
-        Page<Systemdictionary> page = new Page<>();
-        List<Systemdictionary> list = systemdictionaryService.selectPage(page).getRecords();
+        Page<Systemdictionaryitem> selectPage = systemdictionaryitemService.selectPage(new Page<>());
+        List<Systemdictionaryitem> list = selectPage.getRecords();
         list.forEach(p-> System.out.println(p));
+        System.out.println(selectPage.getTotal());
     }
 
     @Test
     public void testItem() throws Exception{
-        System.out.println(systemdictionaryitemService.selectById(9));
+        System.out.println(systemdictionaryService.selectById(6));
     }
 
     @Test

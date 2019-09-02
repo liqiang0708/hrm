@@ -15,8 +15,8 @@ public class GenteratorCode {
 
     public static void main(String[] args) throws InterruptedException {
         //用来获取Mybatis-Plus.properties文件的配置信息
-        //ResourceBundle rb = ResourceBundle.getBundle("MyBatisPlus-System"); //不要加后缀==============================
-        ResourceBundle rb = ResourceBundle.getBundle("MyBatisPlus-Course"); //不要加后缀
+        ResourceBundle rb = ResourceBundle.getBundle("MyBatisPlus-System"); //不要加后缀==============================
+        //ResourceBundle rb = ResourceBundle.getBundle("MyBatisPlus-Course"); //不要加后缀
         AutoGenerator mpg = new AutoGenerator();
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
@@ -42,7 +42,7 @@ public class GenteratorCode {
         StrategyConfig strategy = new StrategyConfig();
         strategy.setTablePrefix(new String[] { "t_" });// 此处可以修改为您的表前缀
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
-        strategy.setInclude(new String[]{"t_course_type"}); // 需要生成的表===========================================
+        strategy.setInclude(new String[]{"t_department", "t_employee","t_meal","t_menu", "t_permission","t_role","t_tenant","t_tenant_type"}); // 需要生成的表===========================================
         mpg.setStrategy(strategy);
         // 包配置
         PackageConfig pc = new PackageConfig();
@@ -67,13 +67,27 @@ public class GenteratorCode {
         List<FileOutConfig> focList = new ArrayList<FileOutConfig>();
         //============================================第一种方式========================================================
         // 调整 domain 生成目录演示 生成到接口
-        focList.add(new FileOutConfig("/templates/Swagger2.java.vm") {//这个模板在templates找不到，是框架内置的
+       /* focList.add(new FileOutConfig("/templates/Swagger2.java.vm") {//只需要生成一次就够了
             @Override
             public String outputFile(TableInfo tableInfo) {
                 return rb.getString("OutputDir")+ "/com/liqiang/hrm/config/Swagger2.java";
             }
-        });
+        });*/
 
+        // 调整 client  clientFactory 生成目录演示 生成到接口
+        focList.add(new FileOutConfig("/templates/client.java.vm") {//这个模板在templates找不到，是框架内置的
+            @Override
+            public String outputFile(TableInfo tableInfo) {
+                return rb.getString("ApiOutputDirBase")+ "/com/liqiang/hrm/client/" + tableInfo.getEntityName() + "Client.java";
+            }
+        });
+        // 调整 client  clientFactory 生成目录演示 生成到接口
+        focList.add(new FileOutConfig("/templates/ClientHystrixFallbackFactory.java.vm") {//这个模板在templates找不到，是框架内置的
+            @Override
+            public String outputFile(TableInfo tableInfo) {
+                return rb.getString("ApiOutputDirBase")+ "/com/liqiang/hrm/client/" + tableInfo.getEntityName() + "ClientHystrixFallbackFactory.java";
+            }
+        });
         // 调整 domain 生成目录演示 生成到接口
         focList.add(new FileOutConfig("/templates/entity.java.vm") {//这个模板在templates找不到，是框架内置的
             @Override

@@ -1,9 +1,11 @@
 package com.liqiang.hrm.domain;
 
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableName;
+
 import java.io.Serializable;
 
 /**
@@ -31,6 +33,11 @@ public class CourseType extends Model<CourseType> {
      * 父ID
      */
     private Long pid;
+    /**
+     * 关联
+     */
+    @TableField(exist = false)
+    private CourseType parent;
     /**
      * 图标
      */
@@ -138,16 +145,16 @@ public class CourseType extends Model<CourseType> {
     @Override
     public String toString() {
         return "CourseType{" +
-        ", id=" + id +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        ", name=" + name +
-        ", pid=" + pid +
-        ", logo=" + logo +
-        ", description=" + description +
-        ", sortIndex=" + sortIndex +
-        ", path=" + path +
-        ", totalCount=" + totalCount +
-        "}";
+                ", id=" + id +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", name=" + name +
+                ", pid=" + pid +
+                ", logo=" + logo +
+                ", description=" + description +
+                ", sortIndex=" + sortIndex +
+                ", path=" + path +
+                ", totalCount=" + totalCount +
+                "}";
     }
 }

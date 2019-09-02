@@ -12,7 +12,7 @@ eureka:
     prefer-ip-address: true
 zuul:
   routes:
-    system.serviceId: hrm-system-dev #  (保留-dev以儆效尤)需要被通过网关（再通过Eureka）访问的服务的服务名  必须和注册到Eureka的name一直才能找到，因为配置到github的name取了dev（挖坑），这里也必须dev
+    system.serviceId: hrm-system #  需要被通过网关（再通过Eureka）访问的服务的服务名  必须和注册到Eureka的name一直才能找到，因为配置到github的name取了dev（挖坑），这里也必须dev
     system.path: /system/** # 把/system打头的所有请求都转发给hrm-system
     course.serviceId: hrm-course #  需要被通过网关访问的服务的服务名    注释放开后，空格变少，，就会不生效，，，切记！！
     course.path: /course/** # 把/system打头的所有请求都转发给hrm-system
