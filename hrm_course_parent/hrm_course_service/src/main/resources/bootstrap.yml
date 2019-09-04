@@ -11,8 +11,8 @@ spring:
       active: dev
   cloud:
     config:
-      name: application-course #github上面名称
-      profile: ${spring.profiles.active} #环境 java -jar -D xxx jar
+      name: application-course #github上面名称 这里的-dev或-test可以加或不加都能自动补全或识别，目前dev环境-->application-course-dev.yml(优先)  但是application-course也识别
+      profile: ${spring.profiles.active} #环境   配置文件里没有设置多个环境，这里也就不需要根据环境来获取
       label: master #分支
       discovery:
         enabled: true #从eureka上面找配置服务

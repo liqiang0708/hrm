@@ -1,0 +1,18 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1024/eureka
+  instance:
+    instance-id: gateway-4399.com # 显示在Eureka的信息
+    prefer-ip-address: true
+spring:
+  profiles:
+      active: dev
+  cloud:
+    config:
+      discovery:
+        enabled: true #从eureka上面找配置服务
+        service-id: hrm-config-server #指明从Config Server的服务名找配置（Config Server引导到github）
+      name: application-zuul # github上面名称
+      profile: ${spring.profiles.active} #环境  存放在配置中心的配置(故意)没有使用环境，这里就不用通过环境去获取
+      label: master #分支
