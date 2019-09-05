@@ -39,7 +39,7 @@ public class FastDfsController {
         try {
             String pathTmp = path.substring(1); // goup1/xxxxx/yyyy
             String groupName =  pathTmp.substring(0, pathTmp.indexOf("/")); //goup1
-            String remotePath = pathTmp.substring(pathTmp.indexOf("/")+1);// /xxxxx/yyyy
+            String remotePath = pathTmp.substring(pathTmp.indexOf("/")+1);// xxxx/yyyy
             System.out.println("删除"+groupName);
             System.out.println("删除"+remotePath);
             FastDfsApiOpr.delete(groupName,remotePath);
