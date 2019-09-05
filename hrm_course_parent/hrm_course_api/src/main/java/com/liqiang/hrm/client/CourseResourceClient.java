@@ -12,7 +12,7 @@ import java.util.List;
 
 @FeignClient(value = "hrm-course",configuration = FeignClientsConfiguration.class,
         fallbackFactory = CourseResourceClientHystrixFallbackFactory.class)
-@RequestMapping("/courseResource")
+@RequestMapping("/course/courseResource")
 public interface CourseResourceClient {
     /**
      * 保存和修改公用的

@@ -17,6 +17,12 @@
             <artifactId>hrm_basic_util</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.liqiang</groupId>
+            <artifactId>hrm_system_api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <!--======================================================================================================-->
         <!--不能全部引入mybatis-plus-boot-starter,这里api接口不做数据库操作,,只需引入核心包mybatis-plus解决错误而已-->
         <dependency>

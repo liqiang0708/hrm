@@ -55,8 +55,7 @@ public class ${entity}Controller {
 
     //获取用户
     @RequestMapping(value = "/{id}",method = RequestMethod.GET)
-    public ${entity} get(@PathVariable("id")Long id)
-    {
+    public ${entity} get(@PathVariable("id")Long id) {
         return ${table.entityPath}Service.selectById(id);
     }
 
@@ -67,7 +66,6 @@ public class ${entity}Controller {
     */
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     public List<${entity}> list(){
-
         return ${table.entityPath}Service.selectList(null);
     }
 
@@ -79,8 +77,7 @@ public class ${entity}Controller {
     * @return PageList 分页对象
     */
     @RequestMapping(value = "/json",method = RequestMethod.POST)
-    public PageList<${entity}> json(@RequestBody ${entity}Query query)
-    {
+    public PageList<${entity}> json(@RequestBody ${entity}Query query){
         Page<${entity}> page = new Page<${entity}>(query.getPage(),query.getRows());
             page = ${table.entityPath}Service.selectPage(page);
             return new PageList<${entity}>(page.getTotal(),page.getRecords());

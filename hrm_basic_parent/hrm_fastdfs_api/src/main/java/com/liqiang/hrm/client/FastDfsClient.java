@@ -10,7 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @FeignClient(value = "hrm-fastdfs",configuration = FeignClientsConfiguration.class,
         fallbackFactory = FastDfsClientHystrixFallbackFactory.class)
-@RequestMapping
+@RequestMapping("fastdfs")
 public interface FastDfsClient {
     @RequestMapping(value="/upload",method= RequestMethod.POST)
     String upload(@RequestParam MultipartFile file);

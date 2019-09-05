@@ -5,6 +5,8 @@ import com.liqiang.hrm.query.CourseQuery;
 import com.liqiang.hrm.service.ICourseService;
 import com.liqiang.hrm.util.AjaxResult;
 import com.liqiang.hrm.util.PageList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/course")
 public class CourseController {
+    private Logger logger = LoggerFactory.getLogger(CourseController.class);
     @Autowired
     public ICourseService courseService;
 
@@ -24,8 +27,6 @@ public class CourseController {
     @RequestMapping(value="/save",method= RequestMethod.POST)
     public AjaxResult save(@RequestBody Course course){
         try {
-
-
             //tenantId tenantName userId userName
             // @TODO 以后登录成功都能获取,现在适用holder来模拟
             //course.setTenantId(UserInfoHolder.getTenant().getId());
@@ -81,7 +82,6 @@ public class CourseController {
 
     /**
     * 分页查询数据
-    *
     * @param query 查询对象
     * @return PageList 分页对象
     */
@@ -92,5 +92,37 @@ public class CourseController {
         //    page = courseService.selectPage(page);
         //    return new PageList<Course>(page.getTotal(),page.getRecords());
         return  courseService.selectListPage(query);
+    }
+    /**
+     * 课程上线
+     * @param ids 批量上线的课程的id 集合
+     */
+    @PostMapping("/onLine")
+    public AjaxResult online(@RequestBody Long[] ids){
+        try {
+            courseService.onLine(ids);
+            return AjaxResult.me();
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("online failed!"+e);
+            return AjaxResult.me().setSuccess(false)
+                    .setMessage("上线失败!"+e.getMessage());
+        }
+    }
+    /**
+     * 课程下线
+     * @param ids 批量下线的课程的id 集合
+     */
+    @PostMapping("/offLine")
+    public AjaxResult offLine(@RequestBody Long[] ids){
+        try {
+            courseService.offLine(ids);
+            return AjaxResult.me();
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("online failed!"+e);
+            return AjaxResult.me().setSuccess(false)
+                    .setMessage("上线失败!"+e.getMessage());
+        }
     }
 }

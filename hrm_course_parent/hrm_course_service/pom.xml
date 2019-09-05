@@ -19,6 +19,12 @@
             <artifactId>hrm_course_api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <!--服务内部调用  用到全文检索服务的api-->
+        <dependency>
+            <groupId>com.liqiang</groupId>
+            <artifactId>hrm_elasticsearch_api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 
         <!-- Eureka 客户端依赖 -->
         <dependency>

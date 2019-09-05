@@ -20,4 +20,14 @@ public interface ICourseService extends IService<Course> {
      * @return
      */
     PageList<Course> selectListPage(CourseQuery query);
+    /**
+     * 课程上线
+     * @param ids 批量上线的课程的id 集合
+     */
+    void onLine(Long[] ids);
+    /**
+     * 课程下线
+     * @param ids 批量下线的课程的id 集合
+     */
+    void offLine(Long[] ids);
 }
