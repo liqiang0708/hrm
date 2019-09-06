@@ -5,11 +5,12 @@ import com.liqiang.hrm.domain.CourseType;
 import com.liqiang.hrm.query.CourseTypeQuery;
 import com.liqiang.hrm.util.PageList;
 
+import java.util.List;
+
 /**
  * <p>
  * 课程目录 服务类
  * </p>
- *
  * @author liqiang
  * @since 2019-09-01
  */
@@ -20,4 +21,6 @@ public interface ICourseTypeService extends IService<CourseType> {
      * @return
      */
     PageList<CourseType> selectListPage(CourseTypeQuery query);
+
+    List<CourseType> queryTypeTree(Long pid);
 }

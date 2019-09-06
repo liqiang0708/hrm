@@ -19,10 +19,16 @@
             <artifactId>hrm_course_common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!--服务内部调用  用到全文检索服务的api-->
+        <!--服务内部调用  用到全文检索服务的 api-->
         <dependency>
             <groupId>com.liqiang</groupId>
             <artifactId>hrm_elasticsearch_api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--服务内部调用  用到缓存服务的 client-->
+        <dependency>
+            <groupId>com.liqiang</groupId>
+            <artifactId>hrm_redis_client</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
@@ -57,6 +63,11 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.9.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.liqiang</groupId>
+            <artifactId>hrm_redis_client</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
 
     </dependencies>

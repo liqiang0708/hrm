@@ -1,11 +1,10 @@
 package com.liqiang.hrm.web.controller;
 
-import com.liqiang.hrm.service.ICourseTypeService;
 import com.liqiang.hrm.domain.CourseType;
 import com.liqiang.hrm.query.CourseTypeQuery;
+import com.liqiang.hrm.service.ICourseTypeService;
 import com.liqiang.hrm.util.AjaxResult;
 import com.liqiang.hrm.util.PageList;
-import com.baomidou.mybatisplus.plugins.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +19,7 @@ public class CourseTypeController {
     /**
     * 保存和修改公用的
     * @param courseType  传递的实体
-    * @return Ajaxresult转换结果
+    * @return Ajax 转换结果
     */
     @RequestMapping(value="/save",method= RequestMethod.POST)
     public AjaxResult save(@RequestBody CourseType courseType){
@@ -40,7 +39,7 @@ public class CourseTypeController {
     /**
     * 删除对象信息
     * @param id
-    * @return
+    * @return Ajax转换结果
     */
     @RequestMapping(value="/{id}",method=RequestMethod.DELETE)
     public AjaxResult delete(@PathVariable("id") Long id){
@@ -60,29 +59,30 @@ public class CourseTypeController {
         return courseTypeService.selectById(id);
     }
 
-
     /**
-    * 查看所有的员工信息
-    * @return
+    * 只从数据库查看所有
+    * @return CourseType
     */
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     public List<CourseType> list(){
-
         return courseTypeService.selectList(null);
     }
-
+    /**
+     * 从缓存或数据库获取查看所有
+     * @return CourseType
+     */
+    @RequestMapping(value = "/treeData",method = RequestMethod.GET)
+    public List<CourseType> treeData(){
+        return courseTypeService.queryTypeTree(0L);
+    }
 
     /**
-    * 分页查询数据
-    *
+    * 分页+高级查询+关联查询
     * @param query 查询对象
     * @return PageList 分页对象
     */
     @RequestMapping(value = "/json",method = RequestMethod.POST)
-    public PageList<CourseType> json(@RequestBody CourseTypeQuery query)
-    {
-        Page<CourseType> page = new Page<CourseType>(query.getPage(),query.getRows());
-            page = courseTypeService.selectPage(page);
-            return new PageList<CourseType>(page.getTotal(),page.getRecords());
+    public PageList<CourseType> json(@RequestBody CourseTypeQuery query) {
+        return courseTypeService.selectListPage(query);
     }
 }

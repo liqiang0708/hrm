@@ -1,20 +1,21 @@
 package com.liqiang.hrm.domain;
 
-import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.enums.IdType;
-import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.IdType;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>
  * 课程目录
  * </p>
- *
  * @author liqiang
- * @since 2019-09-01
+ * @since 2019-09-04
  */
 @TableName("t_course_type")
 public class CourseType extends Model<CourseType> {
@@ -33,10 +34,7 @@ public class CourseType extends Model<CourseType> {
      * 父ID
      */
     private Long pid;
-    /**
-     * 关联
-     */
-    @TableField(exist = false)
+    @TableField(exist = false) //数据库没有字段和他匹配,就是用来存储关联查询值
     private CourseType parent;
     /**
      * 图标
@@ -55,6 +53,9 @@ public class CourseType extends Model<CourseType> {
      * 商品数量
      */
     private Integer totalCount;
+
+    @TableField(exist = false) //用来存放 子类型
+    private List<CourseType> children = new ArrayList<>();
 
 
     public Long getId() {
@@ -142,19 +143,35 @@ public class CourseType extends Model<CourseType> {
         return this.id;
     }
 
+    public CourseType getParent() {
+        return parent;
+    }
+
+    public void setParent(CourseType parent) {
+        this.parent = parent;
+    }
+
+    public List<CourseType> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<CourseType> children) {
+        this.children = children;
+    }
+
     @Override
     public String toString() {
         return "CourseType{" +
-                ", id=" + id +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                ", name=" + name +
-                ", pid=" + pid +
-                ", logo=" + logo +
-                ", description=" + description +
-                ", sortIndex=" + sortIndex +
-                ", path=" + path +
-                ", totalCount=" + totalCount +
-                "}";
+        ", id=" + id +
+        ", createTime=" + createTime +
+        ", updateTime=" + updateTime +
+        ", name=" + name +
+        ", pid=" + pid +
+        ", logo=" + logo +
+        ", description=" + description +
+        ", sortIndex=" + sortIndex +
+        ", path=" + path +
+        ", totalCount=" + totalCount +
+        "}";
     }
 }
