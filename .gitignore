@@ -27,3 +27,9 @@ target
 /hrm_basic_parent/hrm_redis_client/hrm_redis_client.iml
 /hrm_basic_parent/hrm_redis_service/hrm_redis_service.iml
 /hrm_basic_parent/hrm_redis_common/hrm_redis_common.iml
+/hrm_basic_parent/hrm_elasticsearch_api/hrm_elasticsearch_api.iml
+/hrm_basic_parent/hrm_elasticsearch_service/hrm_elasticsearch_service.iml
+/hrm_basic_parent/hrm_fastdfs_api/hrm_fastdfs_api.iml
+/hrm_basic_parent/hrm_fastdfs_service/hrm_fastdfs_service.iml
+/hrm_course_parent/hrm_course_client/hrm_course_client.iml
+/hrm_system_parent/hrm_system_client/hrm_system_client.iml
