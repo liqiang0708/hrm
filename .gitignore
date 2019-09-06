@@ -20,3 +20,10 @@
 target
 /hrm_course_parent/hrm_course_api/hrm_course_api.iml
 /hrm_support_parent/hrm_config_server_8848/hrm_config_server_8848.iml
+/hrm.iws
+/hrm.ipr
+/hrm_system_parent/hrm_system_common/hrm_system_common.iml
+/hrm_course_parent/hrm_course_common/hrm_course_common.iml
+/hrm_basic_parent/hrm_redis_client/hrm_redis_client.iml
+/hrm_basic_parent/hrm_redis_service/hrm_redis_service.iml
+/hrm_basic_parent/hrm_redis_common/hrm_redis_common.iml
