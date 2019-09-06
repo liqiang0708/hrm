@@ -12,8 +12,9 @@
     <artifactId>hrm_system_parent</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>hrm_system_api</module>
+        <module>hrm_system_common</module>
         <module>hrm_system_service</module>
+        <module>hrm_system_client</module>
     </modules>
 
     <dependencies>

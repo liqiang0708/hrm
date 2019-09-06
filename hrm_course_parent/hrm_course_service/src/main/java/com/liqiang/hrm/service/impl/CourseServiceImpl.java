@@ -54,9 +54,9 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
     @Override
     public void onLine(Long[] ids) {
         //在索引库批量添加数据
-        List<Course> courseList = mapper.selectBatchIds(Arrays.asList(ids));
-        List<EsCourse> esCourseList = courseList2EsCourse(courseList);
-        esCourseClient.batchSave(esCourseList);
+        //List<Course> courseList = mapper.selectBatchIds(Arrays.asList(ids));
+        //List<EsCourse> esCourseList = courseList2EsCourse(courseList);
+        //esCourseClient.batchSave(esCourseList);
         //批量修改状态
         //update t_course set status = 1,start_time=xxx where id in (1,2,3)
         mapper.batchOnline(Arrays.asList(ids));
@@ -64,9 +64,9 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
 
     @Override
     public void offLine(Long[] ids) {
-        List<Course> courseList = mapper.selectBatchIds(Arrays.asList(ids));
-        List<EsCourse> esCourseList = courseList2EsCourse(courseList);
-        esCourseClient.batchDel(esCourseList);
+        //List<Course> courseList = mapper.selectBatchIds(Arrays.asList(ids));
+        //List<EsCourse> esCourseList = courseList2EsCourse(courseList);
+        //esCourseClient.batchDel(esCourseList);
         //批量修改状态
         //update t_course set status = 1,start_time=xxx where id in (1,2,3)
         mapper.batchOffline(Arrays.asList(ids));
@@ -75,17 +75,27 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
     /**
      *  为实现远程调用 时类型转换方法  数据库对象 to 文档对象
      * */
-    private List<EsCourse> courseList2EsCourse(List<Course> courseList) {
+/*    private List<EsCourse> courseList2EsCourse(List<Course> courseList) {
         List<EsCourse> result = new ArrayList<>();
         for (Course course : courseList) {
             result.add(course2EsCourse(course));
         }
         return result;
+    }*/
+
+    @Override
+    public List<Course> getBatchIds(Long[] ids){
+        return mapper.selectBatchIds(Arrays.asList(ids));
     }
+
+
+
+
+
 
     // @TODO 不同服务,反3Fn设计冗余字段
     // @TODO 相同服务,关联查询
-    private EsCourse course2EsCourse(Course course) {
+   /* private EsCourse course2EsCourse(Course course) {
         EsCourse  result = new EsCourse();
         result.setId(course.getId());
         result.setName(course.getName());
@@ -114,5 +124,5 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
         result.setPriceOld(null);
         result.setQq(null);
         return result;
-    }
+    }*/
 }

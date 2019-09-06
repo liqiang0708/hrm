@@ -9,29 +9,20 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>hrm_elasticsearch_api</artifactId>
+    <artifactId>hrm_redis_service</artifactId>
 
     <dependencies>
+
         <dependency>
             <groupId>com.liqiang</groupId>
-            <artifactId>hrm_basic_util</artifactId>
+            <artifactId>hrm_redis_common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
 
-        <!--客户端feign支持-->
+        <!-- Eureka 客户端依赖  不需要放在redis_client-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-
-        <!--只用到elasticsearch的注解功能，不能用spring-boot-starter-data-elasticsearch-->
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-elasticsearch</artifactId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
         <!--引入swagger支持-->
@@ -48,5 +39,4 @@
             <version>2.9.2</version>
         </dependency>
     </dependencies>
-
 </project>

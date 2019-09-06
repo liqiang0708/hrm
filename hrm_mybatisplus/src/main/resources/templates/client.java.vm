@@ -17,7 +17,7 @@ public interface ${entity}Client {
     /**
      * 保存和修改公用的
      * @param ${table.entityPath}  传递的实体
-     * @return Ajaxresult转换结果
+     * @return Ajax转换结果
      */
     @RequestMapping(value="/save",method= RequestMethod.POST)
     AjaxResult save(${entity} ${table.entityPath});
@@ -25,7 +25,7 @@ public interface ${entity}Client {
     /**
      * 删除对象信息
      * @param id
-     * @return
+     * @return Ajax转换结果
      */
     @RequestMapping(value="/delete/{id}",method=RequestMethod.DELETE)
     AjaxResult delete(@PathVariable("id") Integer id);
@@ -36,15 +36,14 @@ public interface ${entity}Client {
 
 
     /**
-     * 查看所有的员工信息
-     * @return
+     * 查看所有 信息
+     * @return  列表对象
      */
     @RequestMapping("/list")
     public List<${entity}> list();
 
     /**
      * 分页查询数据
-     *
      * @param query 查询对象
      * @return PageList 分页对象
      */

@@ -17,6 +17,9 @@
         <module>hrm_fastdfs_service</module>
         <module>hrm_elasticsearch_api</module>
         <module>hrm_elasticsearch_service</module>
+        <module>hrm_redis_common</module>
+        <module>hrm_redis_client</module>
+        <module>hrm_redis_service</module>
     </modules>
 
 </project>

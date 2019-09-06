@@ -5,11 +5,12 @@ import com.liqiang.hrm.domain.Course;
 import com.liqiang.hrm.query.CourseQuery;
 import com.liqiang.hrm.util.PageList;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
  * </p>
- *
  * @author liqiang
  * @since 2019-09-04
  */
@@ -17,7 +18,7 @@ public interface ICourseService extends IService<Course> {
     /**
      * 分页+高级查询+关联查询
      * @param query
-     * @return
+     * @return 分页对象
      */
     PageList<Course> selectListPage(CourseQuery query);
     /**
@@ -30,4 +31,6 @@ public interface ICourseService extends IService<Course> {
      * @param ids 批量下线的课程的id 集合
      */
     void offLine(Long[] ids);
+
+    List<Course> getBatchIds(Long[] ids);
 }

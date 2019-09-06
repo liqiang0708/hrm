@@ -16,7 +16,7 @@
         <!--这里通过依赖api就可以也依赖工具类，api是依赖了工具类的-->
         <dependency>
             <groupId>com.liqiang</groupId>
-            <artifactId>hrm_course_api</artifactId>
+            <artifactId>hrm_course_common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <!--服务内部调用  用到全文检索服务的api-->

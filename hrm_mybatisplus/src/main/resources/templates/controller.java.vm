@@ -20,7 +20,7 @@ public class ${entity}Controller {
     /**
     * 保存和修改公用的
     * @param ${table.entityPath}  传递的实体
-    * @return Ajaxresult转换结果
+    * @return Ajax转换结果
     */
     @RequestMapping(value="/save",method= RequestMethod.POST)
     public AjaxResult save(@RequestBody ${entity} ${table.entityPath}){
@@ -40,7 +40,7 @@ public class ${entity}Controller {
     /**
     * 删除对象信息
     * @param id
-    * @return
+    * @return Ajax转换结果
     */
     @RequestMapping(value="/{id}",method=RequestMethod.DELETE)
     public AjaxResult delete(@PathVariable("id") Long id){
@@ -62,7 +62,7 @@ public class ${entity}Controller {
 
     /**
     * 查看所有的员工信息
-    * @return
+    * @return 列表对象
     */
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     public List<${entity}> list(){
@@ -72,7 +72,6 @@ public class ${entity}Controller {
 
     /**
     * 分页查询数据
-    *
     * @param query 查询对象
     * @return PageList 分页对象
     */
