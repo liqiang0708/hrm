@@ -1,0 +1,20 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1024/eureka
+  instance:
+    prefer-ip-address: true
+
+# 配置客户端加到Eurake，通过service-id服务名找到配置服务端config-server，才能获取它存放的配置信息（github）。从github,根据name找到对应的yml，根据环境补全yml文件名-dev，再获取这个yml里面的与本机对应的环境
+spring:
+  profiles:
+      active: dev
+  cloud:
+    config:
+      name: application-pages #github上面名称
+      profile: ${spring.profiles.active} #环境 java -jar -D xxx jar
+      label: master #分支
+      discovery:
+        enabled: true #从eureka上面找配置服务
+        service-id: hrm-config-server #指定服务名(Config Server可以集群,统一名字，通过名字拿，会负载均衡)
+#      uri:  可以写死到config server 的地址(不再提前通过Eureka的服务名找到config server) 此时就可以把Eureka也配置到Config Server,

@@ -7,13 +7,13 @@ import com.liqiang.hrm.query.CourseQuery;
 import com.liqiang.hrm.service.ICourseService;
 import com.liqiang.hrm.util.AjaxResult;
 import com.liqiang.hrm.util.PageList;
+import com.liqiang.hrm.util.UserInfoHolder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -35,10 +35,10 @@ public class CourseController {
         try {
             //tenantId tenantName userId userName
             // @TODO 以后登录成功都能获取,现在适用holder来模拟
-            //course.setTenantId(UserInfoHolder.getTenant().getId());
-            //course.setTenantName(UserInfoHolder.getTenant().getCompanyName());
-            //course.setUserId(UserInfoHolder.getLoginUser().getId());
-            //course.setUserName(UserInfoHolder.getLoginUser().getUsername());
+            course.setTenantId(UserInfoHolder.getTenant().getId());
+            course.setTenantName(UserInfoHolder.getTenant().getCompanyName());
+            course.setUserId(UserInfoHolder.getLoginUser().getId());
+            course.setUserName(UserInfoHolder.getLoginUser().getUsername());
             if(course.getId()!=null){
                 courseService.updateById(course);
             }else{

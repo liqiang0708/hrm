@@ -17,6 +17,12 @@
         <result column="start_time" property="startTime" />
         <result column="end_time" property="endTime" />
     </resultMap>
+
+    <!--<insert id="inSert" parameterType="com.liqiang.hrm.domain.Course"
+            keyColumn="id" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO  t_course(name,users,course_type_id,grade,tenant_id,tenantName,user_id,userName)
+         VALUES(#{name},#{users},#{courseType.id},#{grade},#{tenantId},#{tenantName},#{userId},#{userName})
+    </insert>-->
     <!--name users tenantName userName-->
     <sql id="whereSql" >
         <where>
@@ -64,7 +70,7 @@
     <!--update t_course set status = 1,start_time=xxx where id in (1,2,3)-->
     <!--now() 等同与 new Date()-->
     <update id="batchOnline" parameterType="arrayList">
-        UPDATE t_course set status =1,start_time=now() where id IN
+        UPDATE t_course set status = 1,start_time=now(),end_time=NULL where id IN
         <foreach collection="list" item="item" open="(" close=")" separator=",">
             #{item}
         </foreach>
@@ -72,7 +78,7 @@
 
     <!--void batchOffline(List<Long> longs);-->
     <update id="batchOffline" parameterType="arrayList">
-        UPDATE t_course set status =0,end_time=now() where id IN
+        UPDATE t_course set status = 0,end_time=now(),start_time=null  where id IN
         <foreach collection="list" item="item" open="(" close=")" separator=",">
             #{item}
         </foreach>

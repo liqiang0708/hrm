@@ -33,4 +33,5 @@ public interface ICourseService extends IService<Course> {
     void offLine(Long[] ids);
 
     List<Course> getBatchIds(Long[] ids);
+
 }

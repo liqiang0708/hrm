@@ -36,7 +36,7 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
     @Override
     public boolean insert(Course entity) {
         //课程表
-        entity.setStatus(0); // tenantId tenantName userId userName
+        //entity.setStatus(0); // tenantId tenantName userId userName
         mapper.insert(entity);
         //课程详情
         entity.getDetail().setCourseId(entity.getId());

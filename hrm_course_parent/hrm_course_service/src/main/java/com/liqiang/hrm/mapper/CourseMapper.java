@@ -22,4 +22,6 @@ public interface CourseMapper extends BaseMapper<Course> {
     void batchOnline(List<Long> longs);
     //批量修改状态 下线
     void batchOffline(List<Long> longs);
+
+    //void inSert(Course course);
 }

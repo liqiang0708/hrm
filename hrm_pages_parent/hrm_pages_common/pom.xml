@@ -3,20 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>hrm_system_parent</artifactId>
+        <artifactId>hrm_pages_parent</artifactId>
         <groupId>com.liqiang</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>hrm_system_common</artifactId>
+    <artifactId>hrm_page_common</artifactId>
+
     <dependencies>
         <dependency>
             <groupId>com.liqiang</groupId>
             <artifactId>hrm_basic_util</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-    <!--======================================================================================================-->
+        <!--======================================================================================================-->
         <!--不能全部引入mybatis-plus-boot-starter,这里api接口不做数据库操作,,只需引入核心包mybatis-plus解决错误而已-->
         <dependency>
             <groupId>com.baomidou</groupId>

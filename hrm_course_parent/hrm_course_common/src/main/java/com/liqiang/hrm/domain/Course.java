@@ -2,7 +2,10 @@ package com.liqiang.hrm.domain;
 
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.IdType;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -20,6 +23,7 @@ public class Course extends Model<Course> {
 
     private static final long serialVersionUID = 1L;
 
+    @TableId(value = "id",type = IdType.AUTO)
     private Long id;
     /**
      * 课程名称
@@ -55,8 +59,10 @@ public class Course extends Model<Course> {
     private Long userId;
     private String userName;
     @TableField("start_time")
+    @JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
     private Date startTime;
     @TableField("end_time")
+    @JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
     private Date endTime;
 
 
