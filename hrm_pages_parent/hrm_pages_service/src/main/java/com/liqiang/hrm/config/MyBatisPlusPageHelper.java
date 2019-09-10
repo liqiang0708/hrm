@@ -1,0 +1,21 @@
+package com.liqiang.hrm.config;//不属于自带的包名的包都需要自己写${package.Parent}.config也是不行的
+
+import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+@EnableTransactionManagement
+@Configuration
+@MapperScan("com.liqiang.hrm.mapper")
+public class MyBatisPlusPageHelper {
+
+    /**
+     * 分页插件  这个是自己用模板做的
+     */
+    @Bean
+    public PaginationInterceptor paginationInterceptor() {
+        return new PaginationInterceptor();
+    }
+}
