@@ -46,6 +46,8 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
 
     @Override
     public PageList<Course> selectListPage(CourseQuery query) {
+
+        //分页是在这里完成  就不用再mapper.xml里写limit
         Page<Course> page = new Page<>(query.getPage(),query.getRows());
         List<Course> rows =  mapper.loadListPage(page,query);
         return new PageList<>(page.getTotal(),rows);

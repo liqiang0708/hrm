@@ -2,6 +2,8 @@ package com.liqiang.hrm.service;
 
 import com.liqiang.hrm.domain.Pages;
 import com.baomidou.mybatisplus.service.IService;
+import com.liqiang.hrm.query.PagesQuery;
+import com.liqiang.hrm.util.PageList;
 
 /**
  * <p>
@@ -13,4 +15,5 @@ import com.baomidou.mybatisplus.service.IService;
  */
 public interface IPagesService extends IService<Pages> {
 
+    PageList<Pages> selectListPage(PagesQuery query);
 }

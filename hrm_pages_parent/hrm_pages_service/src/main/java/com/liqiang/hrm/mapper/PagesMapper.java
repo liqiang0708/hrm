@@ -1,7 +1,12 @@
 package com.liqiang.hrm.mapper;
 
-import com.liqiang.hrm.domain.Pages;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.baomidou.mybatisplus.plugins.Page;
+import com.liqiang.hrm.domain.Pages;
+import com.liqiang.hrm.query.PagesQuery;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +18,5 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  */
 public interface PagesMapper extends BaseMapper<Pages> {
 
+    List<Pages> loadListPage(Page<Pages> page, @Param("query")PagesQuery query);
 }

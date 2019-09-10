@@ -2,16 +2,42 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.liqiang.hrm.mapper.PagesMapper">
 
-    <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.liqiang.hrm.domain.Pages">
+    <!-- 通用查询映射结果   改名 PagesMap  用起来-->
+    <resultMap id="PagesMap" type="com.liqiang.hrm.domain.Pages">
         <id column="id" property="id" />
         <result column="name" property="name" />
         <result column="alias" property="alias" />
         <result column="type" property="type" />
         <result column="physicalPath" property="physicalPath" />
         <result column="createTime" property="createTime" />
-        <result column="site_id" property="siteId" />
         <result column="template_url" property="templateUrl" />
+        <!--<result column="site_id" property="siteId" />-->
+        <association property="site" javaType="Site">
+            <id column="sid" property="id" />
+            <result column="sname" property="name" />
+            <result column="site" property="url" />
+        </association>
     </resultMap>
+
+    <!-- PageList<Pages> loadListPage(Page<Pages> page, @Param("query")PagesQuery query);有了分页插件，这里不用再 limit-->
+    <select id="loadListPage" resultMap="PagesMap" parameterType="PagesQuery">
+        SELECT p.*,s.name sname,s.url site,s.id sid
+        FROM t_pages p
+        LEFT JOIN t_site s ON p.site_id = s.id
+        <include refid="whereSql"></include>
+    </select>
+
+    <sql id="whereSql" >
+        <where>
+            <if test="query.keyword!=null and query.keyword!=''">
+                and (
+                p.name like concat('%',#{query.keyword},'%') or
+                p.alias like concat('%',#{query.keyword},'%') or
+                p.physicalPath like concat('%',#{query.keyword},'%') or
+                sname like concat('%',#{query.keyword},'%')
+                )
+            </if>
+        </where>
+    </sql>
 
 </mapper>

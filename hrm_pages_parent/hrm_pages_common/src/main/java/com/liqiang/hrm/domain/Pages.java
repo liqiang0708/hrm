@@ -1,12 +1,13 @@
 package com.liqiang.hrm.domain;
 
-import com.baomidou.mybatisplus.enums.IdType;
-import java.util.Date;
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.IdType;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -33,9 +34,14 @@ public class Pages extends Model<Pages> {
     private String alias;
     private Long type;
     private String physicalPath;
+    @JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
     private Date createTime;
+
     @TableField("site_id")
     private Long siteId;
+    //关联表   通过pages表的site_id关联 site对象，才能存下site对象的其他属性
+    @TableField(exist = false)
+    private Site site;
     /**
      * 模板在hdfs中的路径地址
      */
@@ -99,6 +105,14 @@ public class Pages extends Model<Pages> {
         this.siteId = siteId;
     }
 
+    public Site getSite() {
+        return site;
+    }
+
+    public void setSite(Site site) {
+        this.site = site;
+    }
+
     public String getTemplateUrl() {
         return templateUrl;
     }
@@ -121,7 +135,7 @@ public class Pages extends Model<Pages> {
         ", type=" + type +
         ", physicalPath=" + physicalPath +
         ", createTime=" + createTime +
-        ", siteId=" + siteId +
+        ", site=" + site +
         ", templateUrl=" + templateUrl +
         "}";
     }

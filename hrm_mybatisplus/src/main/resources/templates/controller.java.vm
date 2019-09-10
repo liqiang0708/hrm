@@ -71,7 +71,7 @@ public class ${entity}Controller {
 
 
     /**
-    * 分页查询数据
+    * 分页查询数据  记得分页插件PaginationInterceptor
     * @param query 查询对象
     * @return PageList 分页对象
     */
