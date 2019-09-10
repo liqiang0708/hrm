@@ -31,8 +31,7 @@ public class RabbitmqConfig {
     //声明队列
     @Bean(QUEUE_INFORM_SMS)
     public Queue QUEUE_INFORM_SMS() {
-        Queue queue = new Queue(QUEUE_INFORM_SMS);
-        return queue;
+        return new Queue(QUEUE_INFORM_SMS);
     }
 
     //声明队列

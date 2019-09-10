@@ -18,7 +18,7 @@ public class SendMsgTest {
     
     @Test
     public void testSendMsg()throws Exception{
-        String msg = "send a massage to sms!";
+        String msg = "send a massage to email!";
         //把字符串转换为Message对象再发送
         rabbitTemplate.convertAndSend(RabbitmqConfig.EXCHANGE_DIRECT_INFORM,"email",msg);
     }

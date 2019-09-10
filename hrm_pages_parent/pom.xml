@@ -15,7 +15,7 @@
         <module>hrm_pages_common</module>
         <module>hrm_pages_client</module>
         <module>hrm_pages_service</module>
-        <module>hrm_rabbitmq_serivce</module>
+        <module>hrm_rabbitmq_service</module>
     </modules>
 
 </project>
