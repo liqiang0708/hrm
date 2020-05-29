@@ -18,7 +18,7 @@ public class DepartmentController {
     public IDepartmentService departmentService;
 
     /**
-    * 保存和修改公用的
+    * 保存和修改公用的  2020/5/29测试提交
     * @param department  传递的实体
     * @return Ajaxresult转换结果
     */
